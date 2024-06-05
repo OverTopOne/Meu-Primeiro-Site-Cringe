@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="formatos.css">
+    <link rel="stylesheet" href="receitas.css">
+    <style>
+        .is-invalid {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="receitas.html">Receitas</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <br>
+        <h2>Formulário de Cadastro</h2>
+        <form id="formulariodate" method="post" action="post.php">
+            <div class="form-group">
+                <label for="Nome">Nome</label>
+                <input type="text" class="form-control" id="Nome" name="nome" placeholder="Nome" required>
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" class="form-control" id="Email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <label for="Rua">Rua</label>
+                <input type="text" class="form-control" id="Rua" name="rua" placeholder="Rua" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="Número">Número</label>
+                    <input type="text" class="form-control" id="Número" name="numero" placeholder="Número" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Complemento">Complemento</label>
+                    <input type="text" class="form-control" id="Complemento" name="complemento" placeholder="Complemento">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="Cidade">Cidade</label>
+                    <input type="text" class="form-control" id="Cidade" name="cidade" placeholder="Cidade" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Estado">Estado</label>
+                    <input type="text" class="form-control" id="Estado" name="estado" placeholder="Estado" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Cep">Cep</label>
+                <input type="text" class="form-control" id="Cep" name="cep" placeholder="Cep" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById("formulariodate").addEventListener("submit", function(event) {
+            const requiredFields = document.querySelectorAll('#formulariodate [required]');
+            let allFieldsFilled = true;
+
+            requiredFields.forEach(function(field) {
+                if (!field.value.trim()) {
+                    allFieldsFilled = false;
+                    field.classList.add("is-invalid");
+                } else {
+                    field.classList.remove("is-invalid");
+                }
+            });
+
+            if (!allFieldsFilled) {
+                event.preventDefault();
+                alert("Por favor, preencha todos os campos obrigatórios.");
+            }
+        });
+    </script>
+
+
+<footer>
+    <P>&copy; Receitas Souza 2024 - Todos direitos reservados.</P>
+</footer>
+
+</body>
+</html>
